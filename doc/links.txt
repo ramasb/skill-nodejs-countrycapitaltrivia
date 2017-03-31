@@ -1,0 +1,3 @@
+https://developer.amazon.com/blogs/post/Tx24Z2QZP5RRTG1/new-alexa-technical-tutorial-debugging-aws-lambda-code-locally
+
+https://github.com/alexa/interactive-adventure-game-tool#how-to-get-started

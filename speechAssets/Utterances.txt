@@ -1,0 +1,3 @@
+CapitalGuessIntent {capital}
+CapitalClueIntent {country}
+CountryGuessIntent {country}

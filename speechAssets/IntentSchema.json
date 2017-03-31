@@ -1,0 +1,10 @@
+{"intents": [
+    {"intent": "CapitalGuessIntent", "slots": [{"name": "capital", "type": "string"}]},
+    {"intent": "AMAZON.ClueIntent"},
+    {"intent": "AMAZON.YesIntent"},
+    {"intent": "AMAZON.NoIntent"},
+    {"intent": "AMAZON.HelpIntent"},
+    {"intent": "AMAZON.StopIntent"},
+    {"intent": "AMAZON.CancelIntent"}
+  ]
+}
