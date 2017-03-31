@@ -44,17 +44,12 @@ function context() {
 }
 
 AWS.config.region = region;
-//Initialize the Amazon Cognito credentials provider
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'arn:aws:cognito-idp:us-east-1:161173311235:userpool/us-east-1_9W2Ea6JxR'
-});
-
-/*AWS.config.update({
-    accessKeyId: "AKIAJO4JYJGTM5QAV5CQ",
-    secretAccessKey: "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",
+AWS.config.update({
+    accessKeyId: "AKIAJEALLTQFQCV4C6RQ",
+    secretAccessKey: "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",
     "region": region 
 });
-*/
+
 var sts = new AWS.STS();
 sts.assumeRole({
     RoleArn: roleArn,

@@ -2,7 +2,7 @@
   "session": {
     "sessionId": "SessionId.Session1",
     "application": {
-      "applicationId" : "amzn1.ask.skill.5a279ae4-0328-4dd4-8f23-fb75adabf506"	  
+      "applicationId" : "amzn1.ask.skill.ff40eec9-a89f-4925-897c-bed307177e4e"	  
     },
     "user": {
       "userId": "amzn1.ask.account.testaccount1"
@@ -10,13 +10,18 @@
     "new": true
   },
   "request": {
-    "type": "IntentRequest",
-    "requestId": "EdwRequestId.TestSession1",
-    "timestamp": "2016-05-19T01:07:55Z",
-    "intent": {
-      "name": "LaunchIntent"
-    },
-    "locale": "en-US"
-  },
+	    "type": "IntentRequest",
+	    "requestId": "EdwRequestId.TestSession1",
+	    "timestamp": "2016-05-19T01:07:55Z",
+	    "intent": {
+	      "name": "LaunchRequest",
+	      "slots": {
+	          "Capital": {
+	            "name": "Capital"
+	          }
+	       }
+	    },
+	    "locale": "en-US"
+	  },
   "version": "1.0"
 }
