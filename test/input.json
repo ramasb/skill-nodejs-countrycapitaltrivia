@@ -10,17 +10,9 @@
     "new": true
   },
   "request": {
-	    "type": "IntentRequest",
+	    "type": "LaunchRequest",
 	    "requestId": "EdwRequestId.TestSession1",
 	    "timestamp": "2016-05-19T01:07:55Z",
-	    "intent": {
-	      "name": "LaunchRequest",
-	      "slots": {
-	          "Capital": {
-	            "name": "Capital"
-	          }
-	       }
-	    },
 	    "locale": "en-US"
 	  },
   "version": "1.0"

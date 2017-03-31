@@ -18,8 +18,8 @@ var questions = require("./countries");
 var languageString = {
     "en": {
         "translation": {
-            "QUESTIONS" : questions["COUNTRIES"],
-            "GAME_NAME" : "Reindeer Trivia", // Be sure to change this for your skill.
+            "COUNTRIES" : questions["COUNTRIES"],
+            "GAME_NAME" : "Country Capital Trivia", 
             "HELP_MESSAGE": "I will ask you %s multiple choice question about a country. Respond with the number of the answer. " +
             "For example, say one, two, three, or four. To start a new game at any time, say, start game. ",
             "REPEAT_QUESTION_MESSAGE": "To repeat the last question, say, repeat. ",
@@ -42,12 +42,18 @@ var languageString = {
             "GAME_OVER_MESSAGE": "You got %s out of %s questions correct. Thank you for playing!",
             "SCORE_IS_MESSAGE": "Your score is %s. "
         }
-    }
+    },
+    "en-US": {
+        "translation": {
+            "COUNTRIES" : questions["COUNTRIES"],
+            "GAME_NAME" : "Country Capital Trivia", 
+        }
+}
 };
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
-    alexa.appId = APP_ID;
+    alexa.appId = appId;
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageString;
     alexa.registerHandlers(newSessionHandlers, startStateHandlers, triviaStateHandlers, helpStateHandlers);
@@ -77,7 +83,7 @@ var startStateHandlers = Alexa.CreateStateHandler(GAME_STATES.START, {
     "StartGame": function (newGame) {
         var speechOutput = newGame ? this.t("NEW_GAME_MESSAGE", this.t("GAME_NAME")) + this.t("WELCOME_MESSAGE", GAME_LENGTH.toString()) : "";
         // Select GAME_LENGTH questions for the game
-        var translatedQuestions = this.t("QUESTIONS");
+        var translatedQuestions = this.t("COUNTRIES");
         var gameQuestions = populateGameQuestions(translatedQuestions);
         // Generate a random index for the correct answer, from 0 to 3
         var correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT));
@@ -201,7 +207,7 @@ function handleUserGuess(userGaveUp) {
     var currentScore = parseInt(this.attributes.score);
     var currentQuestionIndex = parseInt(this.attributes.currentQuestionIndex);
     var correctAnswerText = this.attributes.correctAnswerText;
-    var translatedQuestions = this.t("QUESTIONS");
+    var translatedQuestions = this.t("COUNTRIES");
 
     if (answerSlotValid && parseInt(this.event.request.intent.slots.Answer.value) == this.attributes["correctAnswerIndex"]) {
         currentScore++;
@@ -285,7 +291,7 @@ function populateRoundAnswers(gameQuestionIndexes, correctAnswerIndex, correctAn
     var answers = [];
     var answersCopy = translatedQuestions[gameQuestionIndexes[correctAnswerIndex]][Object.keys(translatedQuestions[gameQuestionIndexes[correctAnswerIndex]])[0]].slice();
     var index = answersCopy.length;
-
+    console.log("Answers : " + answersCopy);
     if (index < ANSWER_COUNT) {
         throw new Error("Not enough answers for question.");
     }
