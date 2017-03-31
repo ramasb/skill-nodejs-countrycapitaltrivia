@@ -9,7 +9,8 @@ var GAME_STATES = {
     START: "_STARTMODE", // Entry point, start the game.
     HELP: "_HELPMODE" // The user is asking for help.
 };
-var questions = require("./countries");
+var questionsSenior = require("./countries_senior");
+var questionsJunior = require("./countries_junior");
 
 /**
  * When editing your questions pay attention to your punctuation. Make sure you use question marks or periods.
