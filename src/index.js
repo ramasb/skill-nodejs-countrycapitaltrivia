@@ -1,6 +1,6 @@
 'use strict';
 var Alexa = require("alexa-sdk");
-var appId = 'amzn1.ask.skill.ff40eec9-a89f-4925-897c-bed307177e4e'; //'amzn1.echo-sdk-ams.app.your-skill-id';
+var APPID = 'amzn1.ask.skill.5a279ae4-0328-4dd4-8f23-fb75adabf506'; //'amzn1.echo-sdk-ams.app.your-skill-id';
 
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
 var GAME_LENGTH = 10;  // The number of questions per trivia game.
@@ -10,7 +10,6 @@ var GAME_STATES = {
     HELP: "_HELPMODE" // The user is asking for help.
 };
 var questions = require("./countries_senior");
-var questionsJunior = require("./countries_junior");
 
 /**
  * When editing your questions pay attention to your punctuation. Make sure you use question marks or periods.
@@ -20,7 +19,7 @@ var languageString = {
     "en": {
         "translation": {
             "COUNTRIES" : questions["COUNTRIES"],
-            "GAME_NAME" : "Country Capital Trivia", 
+            "GAME_NAME" : "Country Capital Game", 
             "HELP_MESSAGE": "I will ask you %s multiple choice question about a country. Respond with the number of the answer. " +
             "For example, say one, two, three, or four. To start a new game at any time, say, start game. ",
             "REPEAT_QUESTION_MESSAGE": "To repeat the last question, say, repeat. ",
@@ -47,15 +46,17 @@ var languageString = {
     "en-US": {
         "translation": {
             "COUNTRIES" : questions["COUNTRIES"],
-            "GAME_NAME" : "Country Capital Trivia", 
+            "GAME_NAME" : "Country Capital Game", 
         }
 }
 };
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
-    alexa.appId = appId;
+    alexa.appId = APPID;
+    alexa.APP_ID = APPID;
     // To enable string internationalization (i18n) features, set a resources object.
+    alexa.locale = "en-US";
     alexa.resources = languageString;
     alexa.registerHandlers(newSessionHandlers, startStateHandlers, triviaStateHandlers, helpStateHandlers);
     alexa.execute();
